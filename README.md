@@ -1,6 +1,7 @@
 <p align="center">
   <img src="https://raw.github.com/lwandrebeck/rance/master/rance.png" width="50%"/>
 </p>
+
 # rance: ansible in rust
 
 [![Coverage Status](https://coveralls.io/repos/github/lwandrebeck/rance/badge.svg?branch=master)](https://coveralls.io/github/lwandrebeck/rance?branch=master)
@@ -18,17 +19,18 @@ Right now, rance does almost nothing. Skeleton is being built. It will (quite) s
 ## TODO:
 
 (I won’t list every ansible modules (3387+ to this date), this README would be dead long)
-[x] Similar CLI as the one of ansible 2.9.6
-[ ] tweak files in etc to stick to rance
-[ ] Write documentation
-[ ] Write tests
-[ ] Packaging (rpm, deb, others ?)
-[ ] Github tweaking (issues labels, template…)
-[ ] Take care of config files that can be in JSON, TOML, YAML, HJSON, INI (partly done)
-[ ] Add sftp/scp/ssh mechanism
-[ ] Use pyO3 to link to ansible
-[ ] Everything
-[ ] and the rest.
+
+- [x] Similar CLI as the one of ansible 2.9.6
+- [ ] tweak files in etc to stick to rance
+- [ ] Write documentation
+- [ ] Write tests
+- [ ] Packaging (rpm, deb, others ?)
+- [ ] Github tweaking (issues labels, template…)
+- [ ] Take care of config files that can be in JSON, TOML, YAML, HJSON, INI (partly done)
+- [ ] Add sftp/scp/ssh mechanism
+- [ ] Use pyO3 to link to ansible
+- [ ] Everything
+- [ ] and the rest.
 
 ## Building
 

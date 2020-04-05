@@ -14,11 +14,12 @@ jobs:
     - name: Build
       with:
         toolchain: nightly
-      run: cargo build --verbose
+        run: cargo build --verbose
+    - uses: actions/checkout@v2
     - name: Run tests
       with:
         toolchain: nightly
-      run: cargo test --verbose
+        run: cargo test --verbose
 
   clippy:
     name: Clippy

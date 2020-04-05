@@ -6,6 +6,7 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/lwandrebeck/rance/badge.svg?branch=master)](https://coveralls.io/github/lwandrebeck/rance?branch=master)
 [![codecov](https://codecov.io/gh/lwandrebeck/rance/branch/master/graph/badge.svg)](https://codecov.io/gh/lwandrebeck/rance)
+[![Build Status](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Factions-badge.atrox.dev%2Flwandrebeck%2France%2Fbadge%3Fref%3Dmaster&style=flat)](https://actions-badge.atrox.dev/lwandrebeck/rance/goto?ref=master)
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 [![Minimum rustc version](https://img.shields.io/badge/rust-nightly20200121%2B-informational)](#rust-version-requirements)
 [![dependency status](https://deps.rs/repo/github/lwandrebeck/rance/status.svg)](https://deps.rs/repo/github/lwandrebeck/rance)

@@ -1,0 +1,206 @@
+---
+name: rance
+version: 0.1.0
+author: Laurent Wandrebeck <l.wandrebeck@quelquesmots.fr>
+about: is an extra-simple tool/framework/API for doing 'remote things'.  this command allows you to define and run a single task 'playbook' against a set of hosts
+args:
+    - version:
+        long: version
+        help: show program's version number, config file location, configured module search path, module location, executable location and exit
+    - verbose:
+        short: v
+        multiple: true
+        help: verbose mode (-vvv for more, -vvvv to enable connection debugging)
+    - become_method:
+        short: b
+        long: become
+        value_name: BECOME_METHOD
+        takes_value: true
+        possible_values:
+            - doas
+            - dzdo
+            - enable
+            - ksu
+            - machinectl
+            - pbrun
+            - pfexec
+            - pmrun
+            - runas
+            - sesu
+            - su
+            - sudo
+        help: privilege escalation method to use (default=%(default)s), use rance-doc -t become -l to list valid choices.
+    - become_user:
+        long: become_user
+        value_name: BECOME_USER
+        takes_value: true
+        default_value: root
+        help: run operations as this user (default=root)
+    - ask_become_pass:
+        short: K
+        long: ask-become-pass
+        help: ask for privilege escalation password
+    - inventory:
+        short: i
+        long: inventory
+        value_name: INVENTORY
+        takes_value: true
+        help: specify inventory host path or comma separated host list. --inventory-file is deprecated
+    - list_hosts:
+        long: list-hosts
+        help: outputs a list of matching hosts; does not execute anything else
+    - limit:
+        short: l
+        long: limit
+        value_name: LIMIT
+        takes_value: true
+        help: further limit selected hosts to an additional pattern
+    - poll:
+        short: P
+        long: poll
+        value_name: POLL_INTERVAL
+        takes_value: true
+        default_value: "15"
+        #requires:
+        #    - background
+        help: set the poll interval if using -B (default=15)
+    - background:
+        short: B
+        long: background
+        value_name: SECONDS
+        takes_value: true
+        default_value: None
+        #requires:
+        #    - poll
+        help: run asynchronously, failing after X seconds (default=N/A)
+    - one_line:
+        short: o
+        long: one-line
+        help: condense output
+    - tree:
+        short: t
+        long: tree
+        value_name: TREE
+        takes_value: true
+        help: log output to this directory
+    - ask_pass:
+        short: k
+        long: ask-pass
+        help: ask for connection password
+    - private_key:
+        long: private-key
+        long: key-file
+        value_name: PRIVATE_KEY_FILE
+        takes_value: true
+        help: use this file to authenticate the connection
+    - user:
+        short: u
+        long: user
+        value_name: REMOTE_USER
+        takes_value: true
+        default_value: None
+        help: connect as this user (default=None)
+    - connection:
+        short: c
+        long: connection
+        value_name: CONNECTION
+        takes_value: true
+        default_value: smart
+        help: connection type to use (default=smart)
+    - timeout:
+        short: T
+        long: timeout
+        value_name: TIMEOUT
+        takes_value: true
+        default_value: "10"
+        help: override the connection timeout in seconds (default=10)
+    - ssh_common_args:
+        long: ssh-common-args
+        value_name: SSH_COMMON_ARGS
+        takes_value: true
+        help: specify common arguments to pass to sftp/scp/ssh (e.g. ProxyCommand)
+    - sftp_extra_args:
+        long: sftp-extra-args
+        value_name: SFTP_EXTRA_ARGS
+        takes_value: true
+        help: specify extra arguments to pass to sftp only (e.g. -f, -l)
+    - scp_extra_args:
+        long: scp-extra-args
+        value_name: SCP_EXTRA_ARGS
+        takes_value: true
+        help: specify extra arguments to pass to scp only (e.g. -l)
+    - ssh_extra_args:
+        long: ssh-extra-args
+        value_name: SSH_EXTRA_ARGS
+        takes_value: true
+        help: specify extra arguments to pass to ssh only (e.g. -R)
+    - check:
+        short: C
+        long: check
+        help: don't make any changes; instead, try to predict some of the changes that may occur
+    - syntax_check:
+        long: syntax-check
+        help: perform a syntax check on the playbook, but do not execute it
+    - diff:
+        short: D
+        long: diff
+        help: when changing (small) files and templates, show the differences in those files; works great with --check
+    - extra_vars:
+        short: e
+        long: extra-vars
+        value_name: EXTRA_VARS
+        takes_value: true
+        help: set additional variables as key=value or YAML/JSON, if filename prepend with @
+    - vault_id:
+        long: vault-id
+        value_name: VAULT_IDS
+        takes_value: true
+        help: the vault identity to use
+    - ask_vault_pass:
+        long: ask-vault-pass
+        help: ask for vault password
+        conflicts_with:
+            - vault_password_file
+    - vault_password_file:
+        long: vault-password-file
+        value_name: VAULT_PASSWORD_FILES
+        takes_value: true
+        help: vault password file
+        conflicts_with:
+            - ask_vault_pass
+    - forks:
+        short: f
+        long: forks
+        value_name: FORKS
+        takes_value: true
+        default_value: "5"
+        help: specify number of parallel processes to use (default=5)
+    - module_path:
+        short: M
+        long: module-path
+        value_name: MODULE_PATH
+        takes_value: true
+        default_value: ~/.ansible/plugins/modules:/usr/share/ansible/plugins/modules
+        help: prepend colon-separated path(s) to module library (default=~/.ansible/plugins/modules:/usr/share/ansible/plugins/modules)
+    - playbook_dir:
+        long: playbook-dir
+        value_name: BASEDIR
+        takes_value: true
+        help: Since this tool does not use playbooks, use this as a substitute playbook directory.This sets the relative path for many features including roles/ group_vars/ etc.
+    - args:
+        short: a
+        long: args
+        value_name: MODULE_ARGS
+        takes_value: true
+        help: module arguments
+    - module_name:
+        short: m
+        long: module-name
+        value_name: MODULE_NAME
+        takes_value: true
+        default_value: command
+        help: module name to execute (default=command)
+    - pattern:
+        value_name: PATTERN
+        takes_value: true
+        required: true

@@ -1,0 +1,7 @@
+[workspace]
+members = [
+    "cobbler",
+    "rance",
+    "rance-connection",
+    "rance-test"
+]

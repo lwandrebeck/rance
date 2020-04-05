@@ -53,7 +53,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions-rs/toolchain@v1
         with:
-          profile: minimal
+          profile: default
           toolchain: ${{ matrix.rust }}
           override: true
       - run: rustup component add rustfmt
@@ -74,7 +74,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: actions-rs/toolchain@v1
         with:
-          profile: minimal
+          profile: default
           toolchain: ${{ matrix.rust }}
           override: true
       - run: rustup component add clippy

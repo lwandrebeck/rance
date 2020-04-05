@@ -82,3 +82,18 @@ jobs:
         with:
           command: clippy
           args: -- -D warnings
+  codecov:
+    name: codecov
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        rust:
+          - nightly-2020-01-21
+          - nightly
+    steps:
+      - uses: codecov/codecov-action@v1
+      with:
+        file: ./coverage.xml
+        flags: unittests
+        name: codecov-umbrella
+        fail_ci_if_error: true

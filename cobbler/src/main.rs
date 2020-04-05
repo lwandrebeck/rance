@@ -19,9 +19,9 @@
 // MA 02110-1301, USA.
 //
 
-use clap_v3::{load_yaml, App};
+//use clap_v3::{load_yaml, App};
 
-use xmlrpc::{Request, Value};
+//use xmlrpc::{Request, Value};
 
 fn main() {
     println!("Hello, world!");

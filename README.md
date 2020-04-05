@@ -26,6 +26,7 @@ Right now, rance does almost nothing. Skeleton is being built. It will (quite) s
 - [ ] Write tests
 - [ ] Packaging (rpm, deb, others ?)
 - [ ] Github tweaking (issues labels, template…)
+- [ ] Github actions tweaking (ms and mac (and others ?) builds to be added)
 - [ ] Take care of config files that can be in JSON, TOML, YAML, HJSON, INI (partly done)
 - [ ] Add sftp/scp/ssh mechanism
 - [ ] Use pyO3 to link to ansible

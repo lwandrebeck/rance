@@ -26,7 +26,7 @@
 //! Source code is GPL3. Please note that this is a personal project (read not funded), in order to learn Rust language.
 //! That does not mean feedback or patches are not welcome.
 //! Right now, rance is not useable for anything.
-use clap_v3::{App, load_yaml};
+use clap_v3::{load_yaml, App};
 
 use config::*;
 
@@ -44,7 +44,7 @@ mod settings;
 use settings::Settings;
 
 fn main() {
-	let settings = Settings::new();
+    let settings = Settings::new();
     let yaml = load_yaml!("rance.yml");
     let matches = App::from(yaml).get_matches();
     if let Some(mode) = matches.value_of("pattern") {
@@ -53,7 +53,7 @@ fn main() {
             "emacs" => println!("You are using emacs..."),
             _ => unreachable!(),
         }
-	} else {
-		println!("--mode <MODE> wasn't used...");
-	}
+    } else {
+        println!("--mode <MODE> wasn't used...");
+    }
 }

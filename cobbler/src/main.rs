@@ -19,7 +19,7 @@
 // MA 02110-1301, USA.
 //
 
-use clap_v3::{App, load_yaml};
+use clap_v3::{load_yaml, App};
 
 use xmlrpc::{Request, Value};
 
